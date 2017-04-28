@@ -9,7 +9,7 @@ function moveUp(){
 	for(var i = 0; i < tiles.length; i++){
 		var t = board[tiles[i].obj.x][tiles[i].obj.y];
 		 board[tiles[i].obj.x][tiles[i].obj.y]= 0;
-		while( tiles[i].obj.y != 0 && board[tiles[i].obj.x][tiles[i].obj.y - 1] == 0{
+		while( tiles[i].obj.y != 0 && board[tiles[i].obj.x][tiles[i].obj.y - 1] == 0){
 			tiles[i].obj.y --;	
 		}
 		setCellOffset(tiles[i].obj);
