@@ -3,6 +3,7 @@ var tiles = [];
 var freeCell = {x: 3, y: 3};
 var started = false;
 
+
 function setCellOffset(cell, x, y) {
     function getOffset(c) {
         return (15 + (15 + 81.25) * c) + "px";
@@ -35,3 +36,19 @@ function createField() {
         }
     }
 }
+document.body.onkeyup = function(event){
+	if(event.which == 38){
+	 	moveUp();
+	}
+	else if(event.which == 40){
+	 	moveDown();
+	}
+	else if(event.which == 37){
+	 	moveLeft();
+	}
+	else if(event.which == 39){
+	 	moveRight();
+	}};
+createField();  
+rndSell();
+//moveDown();
