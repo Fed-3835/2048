@@ -21,6 +21,13 @@ body {
     position: relative;
 }
 
+#tls {
+	width: 400px;
+    height: 400px;
+    border-radius: 5px;
+    position: relative;
+}
+
 .field__cell {
     width: 81.25px;
     height: 81.25px;

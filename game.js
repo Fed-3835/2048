@@ -6,101 +6,73 @@ var board = [[0, 0, 0, 0],
 var tiles = [];
 
 function moveUp(){
-	for(var i = 0; i < tiles.length; i++){
-		var t = board[tiles[i].obj.x][tiles[i].obj.y];
-		 board[tiles[i].obj.x][tiles[i].obj.y]= 0;
-		while( tiles[i].obj.y != 0 && board[tiles[i].obj.x][tiles[i].obj.y - 1] == 0){
-			tiles[i].obj.y --;	
+	for(var i = 3;i > 0; i--){
+		for(var j = 0; j <= 3; j++){
+			if(board[i][j] != 0){
+			if(board[i - 1][j] == 0){
+				board[i - 1][j] = board[i][j];
+				board[i][j] = 0;
+			}
+			else if(board[i - 1][j] == board[i][j]){
+				board[i - 1][j] += board[i][j];
+				board[i][j] = 0;
+			}
+			}
 		}
-		setCellOffset(tiles[i].obj);
-		 board[tiles[i].obj.x][tiles[i].obj.y]= t;
+	}
 
-	
-	}	
-	rndSell();
-	for(var i = 0; i < tiles.length; i++){
-		var t = board[tiles[i].obj.x][tiles[i].obj.y];
-		 board[tiles[i].obj.x][tiles[i].obj.y]= 0;
-		while( tiles[i].obj.y != 0 && board[tiles[i].obj.x][tiles[i].obj.y - 1] == 0){
-			tiles[i].obj.y --;	
-		}
-		setCellOffset(tiles[i].obj);
-		 board[tiles[i].obj.x][tiles[i].obj.y]= t;
-
-	
-	}	
 }
 
 function moveDown(){
-	for(var i = 0; i < tiles.length; i++){
-		var t = board[tiles[i].obj.x][tiles[i].obj.y];
-		 board[tiles[i].obj.x][tiles[i].obj.y]= 0;
-		while( tiles[i].obj.y != 4 && board[tiles[i].obj.x][tiles[i].obj.y + 1] == 0){
-			tiles[i].obj.y ++;	
-		}
-		setCellOffset(tiles[i].obj);
-  		 board[tiles[i].obj.x][tiles[i].obj.y]= t;
-	
-	}	
-	rndSell();
-	for(var i = 0; i < tiles.length; i++){
-		var t = board[tiles[i].obj.x][tiles[i].obj.y];
-		 board[tiles[i].obj.x][tiles[i].obj.y]= 0;
-		while( tiles[i].obj.y != 4 && board[tiles[i].obj.x][tiles[i].obj.y + 1] == 0){
-			tiles[i].obj.y ++;	
-		}
-		setCellOffset(tiles[i].obj);
-  		 board[tiles[i].obj.x][tiles[i].obj.y]= t;
-	
-	}	
+	for(var i = 0;i < 3; i++){
+		for(var j = 0; j <= 3; j++){
+			if(board[i][j] != 0){
+			if(board[i + 1][j] == 0){
+				board[i + 1][j] = board[i][j];
+				board[i][j] = 0;
+			}
+			else if(board[i + 1][j] == board[i][j]){
+				board[i + 1][j] += board[i][j];
+				board[i][j] = 0;
+			}
+		}}
+	}
+		
 }
 
 function moveLeft(){
-	for(var i = 0; i < tiles.length; i++){
-		var t = board[tiles[i].obj.x][tiles[i].obj.y];
-		 board[tiles[i].obj.x][tiles[i].obj.y]= 0;
-		while( tiles[i].obj.x != 0 && board[tiles[i].obj.x - 1][tiles[i].obj.y] == 0){
-			tiles[i].obj.x --;	
+	for(var i = 3;i > 0; i--){
+		for(var j = 0; j <= 3; j++){
+			if(board[j][i] != 0){
+			if(board[j][i - 1] == 0){
+				board[j][i - 1] = board[j][i];
+				board[j][i] = 0;
+				}
+			else if(board[j][i - 1] == board[j][i]){
+				board[j][i - 1] += board[j][i];
+				board[j][i] = 0;
+			}	
+			}
 		}
-		setCellOffset(tiles[i].obj);
-  		 board[tiles[i].obj.x][tiles[i].obj.y]= t;
+	}
 	
-	}	
-	rndSell();	
-	for(var i = 0; i < tiles.length; i++){
-		var t = board[tiles[i].obj.x][tiles[i].obj.y];
-		 board[tiles[i].obj.x][tiles[i].obj.y]= 0;
-		while( tiles[i].obj.x != 0 && board[tiles[i].obj.x - 1][tiles[i].obj.y] == 0){
-			tiles[i].obj.x --;	
-		}
-		setCellOffset(tiles[i].obj);
-  		 board[tiles[i].obj.x][tiles[i].obj.y]= t;
-	
-	}	
 }
 
 function moveRight(){
-		for(var i = 0; i < tiles.length; i++){
-		var t = board[tiles[i].obj.x][tiles[i].obj.y];
-		 board[tiles[i].obj.x][tiles[i].obj.y]= 0;
-		while( tiles[i].obj.x != 3 && board[tiles[i].obj.x + 1][tiles[i].obj.y] == 0){
-			tiles[i].obj.x ++;	
-		}
-		setCellOffset(tiles[i].obj);
-  		 board[tiles[i].obj.x][tiles[i].obj.y]= t;
+	for(var i = 0; i < 3; i++){
+		for(var j = 0; j <= 3; j++){
+			if(board[j][i] != 0){
+			if(board[j][i + 1] == 0){
+				board[j][i + 1] = board[j][i];
+				board[j][i] = 0;
+			}
+			else if(board[j][i + 1] == board[j][i]){
+				board[j][i + 1] += board[j][i];
+				board[j][i] = 0;
+			}	
+		}}
+	}
 	
-	}	
-	rndSell();	
-	for(var i = 0; i < tiles.length; i++){
-		var t = board[tiles[i].obj.x][tiles[i].obj.y];
-		 board[tiles[i].obj.x][tiles[i].obj.y]= 0;
-		while( tiles[i].obj.x != 3 && board[tiles[i].obj.x + 1][tiles[i].obj.y] == 0){
-			tiles[i].obj.x ++;	
-		}
-		setCellOffset(tiles[i].obj);
-  		 board[tiles[i].obj.x][tiles[i].obj.y]= t;
-	
-	}	
 }
 
 function rndSell(){
@@ -115,18 +87,4 @@ function rndSell(){
 	board [x][y] = v;
 	
 
-	var tile;
-    tile = document.createElement("div");
-    tile.classList.add("field__cell", "field__cell--tile");	
-	tile.x = x;
-	tile.y = y;
-	tile.innerHTML = v;
-	
-/*		*/
-	setCellOffset(tile);
-    appendCell(tile);
-	tiles.push({obj: tile, ist: false});
-	
-	
-	return tile;
 }
